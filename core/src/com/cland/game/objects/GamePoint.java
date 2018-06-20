@@ -10,6 +10,7 @@ public abstract class GamePoint {
     Vector2 position;
     boolean isactive;
     float scale;
+    float angle;
 
     public Vector2 getPosition() {
         return position;
