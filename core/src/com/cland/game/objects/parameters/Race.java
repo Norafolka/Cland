@@ -1,4 +1,4 @@
-package com.cland.game.objects.Parameters;
+package com.cland.game.objects.parameters;
 
 public enum Race {
     HUMAN, ELF, ORC;
