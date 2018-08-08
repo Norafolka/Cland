@@ -3,8 +3,6 @@ package com.cland.game.objects.unit;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.cland.game.objects.GamePoint;
-import com.cland.game.objects.parameters.Race;
-import com.cland.game.objects.parameters.UnitСontrol;
 
 public abstract class Unit extends GamePoint {
     Race race;
@@ -39,6 +37,22 @@ public abstract class Unit extends GamePoint {
                 getScale(), getScale(), getAngle(), 0,0,64,64,false,false);
     }
 
-    public void update(float deltaTime){
+    public void update(float deltaTime){}
+    public void mealAttack(){}
+    public void magicAttack(){}
+    public void rangeAttack(){}
+    public void use (){}
+    public void moveUp(){
+        position.y += speed;
     }
+    public void moveDown(){
+        position.y -= speed;
+    }
+    public void moveLeft(){
+        position.x -= speed;
+    }
+    public void moveRight(){
+        position.x += speed;
+    }
+
 }

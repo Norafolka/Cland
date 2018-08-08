@@ -2,20 +2,22 @@ package com.cland.game.objects.unit.player;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.cland.game.GameScreen;
-import com.cland.game.objects.parameters.UnitСontrol;
+import com.cland.game.objects.unit.Control.InputHandler;
 import com.cland.game.objects.unit.Unit;
 
 public class Player extends Unit {
-    UnitСontrol unitСontrol;
+    InputHandler inputHandler;
 
     public Player (GameScreen gameScreen, float x, float y) {
         super(x, y);
         this.texture = new Texture("player.png");
-        this.unitСontrol = new UnitСontrol();
+        this.inputHandler = new InputHandler();
     }
 
     public void update(float deltatime){
         super.update(deltatime);
-        unitСontrol.movement();
+        //inputHandler.movement(this);
+        //inputHandler.inputHandler();
+        inputHandler.inputExecute(inputHandler.inputHandler(),this);
     }
 }
