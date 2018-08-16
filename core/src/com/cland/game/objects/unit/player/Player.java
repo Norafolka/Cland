@@ -22,9 +22,7 @@ public class Player extends Unit {
 
     public void update(float deltatime){
         super.update(deltatime);
-        inputHandler.mouseImputHandler(this,deltatime);
-        //inputHandler.movement(this);
+        inputHandler.mouseImputHandler(this);
         inputHandler.inputHandler(this,deltatime);
-        //inputHandler.inputExecute(inputHandler.inputHandler(),this , deltatime);
     }
 }

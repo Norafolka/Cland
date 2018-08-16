@@ -56,10 +56,7 @@ public abstract class Unit extends GamePoint {
     public void moveRight(float dt){
         position.x += speed * dt;
     }
-    public void angleToTarget (Vector2 mpos,float dt){
-        angle = mpos.angle(getPosition());
-        System.out.println(angle);
-
+    public void angleToTarget (Vector2 mpos){
+        angle = mpos.sub(position).angle();
     }
-
 }

@@ -44,10 +44,8 @@ public class InputHandler {
         if (Gdx.input.isKeyPressed(Input.Keys.D)){keyD.execute(unit, dt);}
     }
 
-    public void mouseImputHandler (Unit unit,float dt){
+    public void mouseImputHandler (Unit unit){
         tmp.set(Gdx.input.getX(), 720 - Gdx.input.getY());
-        //System.out.println("X: " + Gdx.input.getX());
-        //System.out.println("Y: " + Gdx.input.getY());
-        unit.angleToTarget(tmp,dt);
+        unit.angleToTarget(tmp);
     }
 }
