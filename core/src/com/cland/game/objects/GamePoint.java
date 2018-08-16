@@ -7,8 +7,8 @@ import com.cland.game.GameScreen;
 import com.cland.game.emmiters.Poolable;
 
 public abstract class GamePoint implements Poolable {
-    protected transient GameScreen gameScreen;
-    protected transient Texture texture;
+    protected GameScreen gameScreen;
+    protected Texture texture;
     protected Vector2 position;
     protected boolean isactive;
     protected float scale;

@@ -2,9 +2,11 @@ package com.cland.game.objects.unit.Control;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.math.Vector2;
 import com.cland.game.objects.unit.Unit;
 
 public class InputHandler {
+    Vector2 tmp;
 
     private Command keyW;
     private Command keyS;
@@ -12,13 +14,15 @@ public class InputHandler {
     private Command keyD;
 
     public InputHandler (){
+        this.tmp = new Vector2();
+
         //TODO сделать систему переназначения клавиш
         this.keyW = new MoveUpCommand();
         this.keyS = new MoveDownCommand();
         this.keyA = new MoveLeftCommand();
         this.keyD = new MoveRightCommand();
     }
-
+    /*
     public Command inputHandler (){
         if (Gdx.input.isKeyPressed(Input.Keys.W)){return keyW;}
         if (Gdx.input.isKeyPressed(Input.Keys.S)){return keyS;}
@@ -27,42 +31,23 @@ public class InputHandler {
         return null;
     }
 
-    public void inputExecute (Command command,Unit unit){
+    public void inputExecute (Command command,Unit unit,float dt){
         if (command != null){
-            command.execute(unit);
+            command.execute(unit,dt);
         }
-    }
-    /*
-    public void inputHandler (Unit unit){
-        if (Gdx.input.isKeyPressed(Input.Keys.W)){keyW.execute(unit);}
-        else if (Gdx.input.isKeyPressed(Input.Keys.S)){keyS.execute(unit);}
-        else if (Gdx.input.isKeyPressed(Input.Keys.A)){keyA.execute(unit);}
-        else if (Gdx.input.isKeyPressed(Input.Keys.D)){keyD.execute(unit);}
-    }
-    */
+    } */
 
-    /*Vector2 tempPosition;
+    public void inputHandler (Unit unit, float dt){
+        if (Gdx.input.isKeyPressed(Input.Keys.W)){keyW.execute(unit, dt);}
+        if (Gdx.input.isKeyPressed(Input.Keys.S)){keyS.execute(unit, dt);}
+        if (Gdx.input.isKeyPressed(Input.Keys.A)){keyA.execute(unit, dt);}
+        if (Gdx.input.isKeyPressed(Input.Keys.D)){keyD.execute(unit, dt);}
+    }
 
-    public void movement(Unit unit){
-        if (Gdx.input.isKeyP nressed(Input.Keys.D)){
-            tempPosition = unit.getPosition();
-            tempPosition.add(unit.getSpeed(),0);
-            unit.setPosition(tempPosition);
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.A)){
-            tempPosition = unit.getPosition();
-            tempPosition.add(-unit.getSpeed(),0);
-            unit.setPosition(tempPosition);
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.W)){
-            tempPosition = unit.getPosition();
-            tempPosition.add(0,unit.getSpeed());
-            unit.setPosition(tempPosition);
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.S)){
-            tempPosition = unit.getPosition();
-            tempPosition.add(0,-unit.getSpeed());
-            unit.setPosition(tempPosition);
-        }
-    }*/
+    public void mouseImputHandler (Unit unit,float dt){
+        tmp.set(Gdx.input.getX(), 720 - Gdx.input.getY());
+        //System.out.println("X: " + Gdx.input.getX());
+        //System.out.println("Y: " + Gdx.input.getY());
+        unit.angleToTarget(tmp,dt);
+    }
 }

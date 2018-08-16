@@ -4,7 +4,7 @@ import com.cland.game.objects.unit.Unit;
 
 public class MoveRightCommand implements Command {
     @Override
-    public void execute(Unit unit) {
-        unit.moveRight();
+    public void execute(Unit unit, float dt) {
+        unit.moveRight(dt);
     }
 }

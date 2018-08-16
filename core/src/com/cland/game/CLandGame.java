@@ -6,10 +6,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class CLandGame extends Game {
 	private SpriteBatch batch;
+	private GameScreen gameScreen;
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
+		gameScreen = new GameScreen(batch);
+		setScreen(gameScreen);
 	}
 
 	@Override

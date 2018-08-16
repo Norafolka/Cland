@@ -1,11 +1,13 @@
 package com.cland.game.objects.unit;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.cland.game.objects.GamePoint;
 
 public abstract class Unit extends GamePoint {
     Race race;
+    CharacterClass characterClass;
 
     long experience = 0;
     int level = 0;
@@ -17,7 +19,7 @@ public abstract class Unit extends GamePoint {
 
     int helth = 0;
     int mana = 0;
-    int speed = 0;
+    int speed = 200;
     int resistance = 0;
     int armor = 0;
     int carryweight = 0;
@@ -37,22 +39,27 @@ public abstract class Unit extends GamePoint {
                 getScale(), getScale(), getAngle(), 0,0,64,64,false,false);
     }
 
-    public void update(float deltaTime){}
+    public void update(float dt){}
     public void mealAttack(){}
     public void magicAttack(){}
     public void rangeAttack(){}
     public void use (){}
-    public void moveUp(){
-        position.y += speed;
+    public void moveUp(float dt){
+        position.y += speed * dt;
     }
-    public void moveDown(){
-        position.y -= speed;
+    public void moveDown(float dt){
+        position.y -= speed * dt;
     }
-    public void moveLeft(){
-        position.x -= speed;
+    public void moveLeft(float dt){
+        position.x -= speed * dt;
     }
-    public void moveRight(){
-        position.x += speed;
+    public void moveRight(float dt){
+        position.x += speed * dt;
+    }
+    public void angleToTarget (Vector2 mpos,float dt){
+        angle = mpos.angle(getPosition());
+        System.out.println(angle);
+
     }
 
 }

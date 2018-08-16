@@ -8,6 +8,12 @@ import com.cland.game.objects.unit.Unit;
 public class Player extends Unit {
     InputHandler inputHandler;
 
+    public Player() {
+        super(100, 100);
+        this.inputHandler = new InputHandler();
+        this.texture = new Texture("player.png");
+    }
+
     public Player (GameScreen gameScreen, float x, float y) {
         super(x, y);
         this.texture = new Texture("player.png");
@@ -16,8 +22,9 @@ public class Player extends Unit {
 
     public void update(float deltatime){
         super.update(deltatime);
+        inputHandler.mouseImputHandler(this,deltatime);
         //inputHandler.movement(this);
-        //inputHandler.inputHandler();
-        inputHandler.inputExecute(inputHandler.inputHandler(),this);
+        inputHandler.inputHandler(this,deltatime);
+        //inputHandler.inputExecute(inputHandler.inputHandler(),this , deltatime);
     }
 }
